@@ -3,6 +3,8 @@ const app = express();
 const cors = require('cors');
 const mysql = require("mysql");
 
+const PORT = process.env.PORT || 3001;
+
 const db = mysql.createPool({
     host: "us-cdbr-east-04.cleardb.com",
     user: "b120706c0b243f",
@@ -35,6 +37,6 @@ app.get("/patitas2", (req, res) =>{
 })
 
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log('Corriendo 8080');
 });
