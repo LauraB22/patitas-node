@@ -29,7 +29,7 @@ app.get("/patitas", (req, res) =>{
     })
 })
 
-app.get("/patitas2:id", (req, res) =>{
+app.get("/patitas2/:id", (req, res) =>{
     const id=req.params.id;
     const sql = "select * FROM empleado WHERE Id_Empleado=?";
     db.query(sql,[id], (err,result) =>{
