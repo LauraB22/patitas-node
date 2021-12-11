@@ -31,13 +31,17 @@ app.get("/patitas", (req, res) =>{
     })
 })
 
-app.get("/patitas2/:id", (req, res) =>{
-    const id=req.params.id;
-    const sql = "select * FROM empleado WHERE Id_Empleado=?";
-    db.query(sql,[id], (err,result) =>{
+app.post("/patitas2", (req, res) =>{
+    // const id=req.params.id;
+    const email = req.body.email;
+    const password = req.body.password;
+    const sql = "select * from empleado where Correo_Empleado=? and Contraseña_Empleado=?";
+    db.query(sql,[email,password], (err,result) =>{
         res.send(result);
     })
 })
+
+app.get("/osito/")
 
 
 app.listen(PORT, () => {
