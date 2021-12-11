@@ -4,6 +4,8 @@ const cors = require('cors');
 const mysql = require("mysql");
 
 const PORT = process.env.PORT || 3001;
+//usamos una constante para el puerto de conexion en caso de que este en modo de produccion (Heroku)y obtenga el puerto del mismo servidor 
+//o en caso de que este en modo de desarrollo usamos nuestro propio puerto (nodemon)
 
 const db = mysql.createPool({
     host: "us-cdbr-east-04.cleardb.com",
