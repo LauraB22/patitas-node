@@ -41,8 +41,13 @@ app.post("/patitas2", (req, res) =>{
     })
 })
 
-app.get("/osito/")
-
+app.get("/patitas3/:id", (req, res) =>{
+     const id=req.params.id;
+    const sql = "select * from empleado where Id_Empleado=?";
+    db.query(sql,[id], (err,result) =>{
+        res.send(result);
+    })
+})
 
 app.listen(PORT, () => {
     console.log('Corriendo 8080');
