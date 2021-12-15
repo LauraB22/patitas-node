@@ -41,6 +41,14 @@ app.post("/empleados", (req, res) =>{
     })
 })
 
+app.get("/empleado/:id", (req, res) =>{
+    const id=req.params.id;
+   const sql = "select * from empleado where Id_Empleado=?";
+   db.query(sql,[id], (err,result) =>{
+       res.send(result);
+   })
+})
+
 app.get("/producto/:categoria", (req,res) => {
     const categoria = req.params.categoria;
     const sql = "select * from producto where Categoria=?";
@@ -113,10 +121,11 @@ app.get("/ticketProducto/:idTicket", (req, res) =>{
     })
 })
 
-app.get("/patitas3/:id", (req, res) =>{
-     const id=req.params.id;
-    const sql = "select * from empleado where Id_Empleado=?";
-    db.query(sql,[id], (err,result) =>{
+app.patch("/elimProductos", (req, res) =>{
+    const stock = req.body.stock;
+    const Producto = req.body.Producto;
+    const sql = "update producto set Stock =? where Nombre_Producto =?";
+    db.query(sql, [stock, Producto], (err, result) =>{
         res.send(result);
     })
 })
