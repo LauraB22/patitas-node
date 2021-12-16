@@ -31,6 +31,24 @@ app.get("/citas", (req, res) =>{
     })
 })
 
+app.post("/generarCita/:idExpediente", (req, res) =>{
+    const FechaCita = req.body.FechaCita;
+    const idExpediente = req.params.idExpediente;
+    const sql = "insert into cita(Fecha_Cita, Id_Expediente) values (?, ?)";
+    db.query(sql, [FechaCita, idExpediente],(err, result) =>{
+        res.send(result);
+    })
+})
+
+app.patch("/editarCita/:idExpediente", (req, res) =>{
+    const fechaCita = req.body.fechaCita;
+    const idExpediente = req.params.idExpediente;
+    const sql = "update cita set Fecha_cita = ? where Id_Cita = ?";
+    db.query(sql, [fechaCita, idExpediente], (err, result)=>{
+        res.send(result);
+    })
+})
+
 app.post("/empleados", (req, res) =>{
     // const id=req.params.id;
     const email = req.body.email;
@@ -72,19 +90,36 @@ app.get("/sucursales", (req,res) => {
     })
 })
 
-app.get("/sucursalempleado/:especialidad", (req, res) =>{
+app.get("/empleado/especialidad/:especialidad", (req, res) =>{
     const especialidad = req.params.especialidad;
-    const sql = "select Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Especialidad, Nombre_Sucursal from sucursalempleado inner join empleado on sucursalempleado.id_empleado = empleado.Id_Empleado join sucursal on sucursalempleado.id_sucursal = sucursal.Id_Sucursal where empleado.Especialidad=?";
+    const sql = "select Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado where Especialidad = ?";
     db.query(sql,[especialidad], (err, result) =>{
         res.send(result);
     })
 })
+
+app.get("/empleado/sucursal/:sucursal", (req, res) =>{
+    const sucursal = req.params.sucursal;
+    const sql = "select Nombre_Sucursal,Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado inner join sucursal on empleado.Id_sucursal = sucursal.Id_Sucursal where sucursal.Nombre_Sucursal = ?";
+    db.query(sql,[sucursal], (err, result) =>{
+        res.send(result);
+    })
+})
+
 
 app.post("/usuario", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const sql = "select * from usuario where Correo_Usuario=? and Password_Usuario=?";
     db.query(sql, [email, password], (err, result) =>{
+        res.send(result);
+    })
+})
+
+app.get("/usuarioId/:idUsuario", (req, res) =>{
+    const idUsuario = req.params.idUsuario;
+    const sql = "select Id_Usuario, Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario from usuario where Id_Usuario=?";
+    db.query(sql, [idUsuario], (err, result) =>{
         res.send(result);
     })
 })
@@ -99,11 +134,12 @@ app.get("/mascota/:id", (req, res) =>{
 
 app.get("/expediente/:id", (req, res)=>{
     const id = req.params.id;
-    const sql = "select Fecha_Cita, id_sucursal, id_expediente from expediente inner join cita on expediente.id_cita = cita.Id_Cita where id_mascota=?";
+    const sql = "select * from expediente where id_mascota=?";
     db.query(sql, [id], (err, result) =>{
         res.send(result);
     })
 })
+
 
 app.get("/ticket/:id", (req,res) =>{
     const id=req.params.id;
@@ -121,11 +157,61 @@ app.get("/ticketProducto/:idTicket", (req, res) =>{
     })
 })
 
-app.patch("/elimProductos", (req, res) =>{
+app.patch("/elimProductos", (req, res) =>{ //Cambiar el stock de los productos
     const stock = req.body.stock;
     const Producto = req.body.Producto;
     const sql = "update producto set Stock =? where Nombre_Producto =?";
     db.query(sql, [stock, Producto], (err, result) =>{
+        res.send(result);
+    })
+})
+
+app.post('/creaProducto', (req,res)=>{
+    const nombreProducto = req.body.nombreProducto;
+    const precio = req.body.precio;
+    const descrip = req.body.descrip;
+    const categoria = req.body.categoria;
+    const Especie = req.body.Especie;
+    const Stock = req.body.Stock;
+    const imagen = req.body.imagen;
+    const sql = "INSERT INTO producto(Nombre_Producto, precio, Descripcion, Categoria, Especie, Stock, Imagen_Produc) VALUES(?,?,?,?,?,?,?)";
+    db.query(sql, [nombreProducto, precio, descrip, categoria, Especie, Stock, imagen], (err, result) =>{
+        res.send(result);
+    })
+})
+
+app.patch("/editarProduct/:nombreProd", (req, res) =>{
+    const precio = req.body.precio;
+    const nombreProd = req.params.nombreProd;
+    const sql = "update producto set precio = ? where Nombre_Producto = ?";
+    db.query(sql, [precio, nombreProd], (err,result)=>{
+        res.send(result);
+    })
+})
+
+app.delete('/elimEmpleado', (req, res)=>{
+    const nombreEmp = req.body.nombreEmp;
+    const apellido1 = req.body.apellido1;
+    const sql = "delete from empleado where Nombre_Empleado = ? and Apellido1_Empleado = ?";
+    db.query(sql, [nombreEmp, apellido1], (err, result) =>{
+        res.send(result);
+    })
+})
+
+app.post('/crearEmpleado', (req, res) =>{
+    const idSucursal = req.body.idSucursal;
+    const NombreEmpl = req.body.NombreEmpl;
+    const Apellido1 = req.body.Apellido1;
+    const Apellido2 = req.body.Apellido2;
+    const telefono = req.body.telefono;
+    const especialidad = req.body.especialidad;
+    const cargo = req.body.cargo;
+    const correo = req.body.correo;
+    const pass = req.body.pass;
+    const horarioEntrada = req.body.horarioEntrada;
+    const horarioSalida = req.body.horarioSalida;
+    const sql = "insert into empleado(Id_sucursal, Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Cargo_Empleado, Especialidad, Correo_Empleado, Contraseña_Empleado, Horario_entrada_Empleado, Horario_salida_Empleado) VALUES (?,?,?,?, ?, ?,?, ?, ?, ?, ?)";
+    db.query(sql, [idSucursal, NombreEmpl, Apellido1, Apellido2, telefono, especialidad, cargo, correo, pass, horarioEntrada, horarioSalida], (err, result)=>{
         res.send(result);
     })
 })
