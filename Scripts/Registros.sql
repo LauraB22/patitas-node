@@ -1,65 +1,65 @@
-INSERT INTO cita (Fecha_Cita) VALUES
-("2021-10-28 10:00:00"),
-("2021-12-01 14:00:00"),
-("2021-11-30 11:00:00"),
-("2021-12-03 13:00:00"),
-("2021-11-29 16:00:00"),
-("2021-12-06 10:00:00"),
-("2021-12-10 12:00:00"),
-("2021-12-20 19:00:00"),
-("2021-12-23 18:00:00"),
-("2021-12-29 15:00:00"),
-("2021-12-29 17:00:00"),
-("2021-12-27 11:00:00"),
-("2021-12-27 14:00:00"),
-("2021-12-01 15:00:00"),
-("2021-12-07 13:00:00"),
-("2021-11-30 10:00:00"),
-("2021-11-30 14:00:00"),
-("2021-12-26 10:00:00"),
-("2021-12-27 17:00:00"),
-("2021-12-02 15:00:00");
+INSERT INTO cita (Fecha_Cita, Id_Expediente) VALUES
+("2021-10-28 10:00:00", '3'),
+("2021-12-01 14:00:00", '1'),
+("2021-11-30 11:00:00", '5'),
+("2021-12-03 13:00:00", '5'),
+("2021-11-29 16:00:00", '6'),
+("2021-12-06 10:00:00", '3'),
+("2021-12-10 12:00:00", '2'),
+("2021-12-20 19:00:00", '7'),
+("2021-12-23 18:00:00", '2'),
+("2021-12-29 15:00:00", '4'),
+("2021-12-29 17:00:00", '8'),
+("2021-12-27 11:00:00", '8'),
+("2021-12-27 14:00:00", '9'),
+("2021-12-01 15:00:00", '9'),
+("2021-12-07 13:00:00", '10'),
+("2021-11-30 10:00:00", '10'),
+("2021-11-30 14:00:00", '11'),
+("2021-12-26 10:00:00", '11'),
+("2021-12-27 17:00:00", '12'),
+("2021-12-02 15:00:00", '13');
 
-INSERT INTO empleado (Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Cargo_Empleado, Especialidad, Correo_Empleado, Contraseña_Empleado, Horario_entrada_Empleado, Horario_salida_Empleado) 
+INSERT INTO empleado (Id_sucursal, Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Cargo_Empleado, Especialidad, Correo_Empleado, Contraseña_Empleado, Horario_entrada_Empleado, Horario_salida_Empleado) 
 VALUES
-('Luis Angel', 'Aguilar', 'Ceja', '5534096789', 'Veterinario', 'Perros y Gatos', 'laacarguilarceja@gmail.com', 'luis123', "10:00", "17:00"),
-('Cesar Sadrak','Martin','Moreno', '5567907860', 'Veterinario', 'Perros y Gatos', 'kreytos.pavi10@gmail.com', 'cesar123', "10:00", "17:00"),
-('Emilio','Gallegos','Salinas', '5590123624', 'Veterinario', 'Reptiles', 'emilio_gallegos112@gmail.com','emilio123', "12:00", "20:00"),
-('Victor Manuel','Cabello','Vargas', '5589453562', 'Finanzas', 'Ninguna', 'victor.cabello091@gmail.com','victor123', "11:00", "20:00"),
-('Gabriela','Cruz','Gallegos','5551650291', 'Finanzas', 'Ninguna','ocbej@gmail.com', 'gabriela145', "11:00", "20:00"),
-('Alejandra','Salto','Alfaro', '5555118636', 'Secretario', 'Ninguna', 'cnmlah@gmail.com', 'alejandra144', '10:00', "20:00" ),
-('Sheyla','Romero','Monroy', '5555766516', 'Secretario', 'Ninguna', 'Ensjv@gmail.com', 'Sheyla123', "10:00", "20:00"),
-('Marco','Duran','Romero', '5553560052', 'Veterinario', 'Reptiles', 'patosycorbatas@gmail.com', 'Marco123', "12:00", "20:00"),
-('Patricia','Vargas','Arredondo', '5551000428', 'Veterinario', 'Aves', 'etesech99@gmail.com', 'Patricia123', "12:00", "20:00"),
-('Anahi','Salinas','Hernandez', '5556727693', 'Veterinario', 'Aves', 'holacomoestas@gmail.com', 'Anahi123', "12:00", "20:00"),
-('Brenda','Cisneros','Lopez', '5521630831', 'Veterinario', 'Mamíferos', 'BrenLopez@gmail.com', 'Brenda123', "12:00", "20:00"),
-('Ivonne','Ugalde','Guerrero', '5553990664', 'Veterinario', 'Mamíferos', 'gue_rro98@outlook.com', 'ivon1123', "12:00", "20:00"),
-('Maria','Sandoval','Martinez', '5576458792', 'Veterinario', 'Peces', 'marmar26@gmail.com', 'Maria123', "13:00", "20:00"),
-('Ana','Zapata','Moreno', '5555144116', 'Gerente', 'Ninguna', 'bibvb@gmail.com', 'ana123', "10:00", "20:00"),
-('Antonio','Ceja','Gonzalez', '5556733612', 'Veterinario', 'Ninguna', 'elpepe@gmail.com', 'Antonio123', "12:00", "19:00"),
-('Karla','Benítez','Quiroz', '5555965229', 'Veterinario', 'Ninguna', 'quiroz_beni66@outlook.com', 'Karla123', "12:00", "19:00"),
-('Kilian', 'Trollope', 'Cauderlie', '4139568508', 'Gerente','Ninguna', 'kcauderlie0@cisco.com', 'kilian123', '10:00', '20:00'),
-('Vanni', 'Norway', 'Laurence', '4207227957', 'Gerente', 'Ninguna', 'vlaurence1@vinaora.com', 'Vani123', '10:00', '20:00'),
-('Temple', 'Kenny', 'Muffen', '7666507043', 'Gerente','Ninguna', 'tmuffen2@goo.ne.jp', 'Temple123', '10:00', '20:00'),
-('Melania', 'Jahn', 'Trotton', '5981839429', 'Gerente', 'Ninguna', 'mtrotton3@indiegogo.com', 'Melania123', '10:00', '20:00'),
-('Bent', 'Geffcock', 'Blackburne', '5357512577', 'Gerente','Ninguna', 'bblackburne4@4shared.com', 'Bent123', '10:00', '20:00'),
-('Pen', 'Fehely', 'Battleson', '8616103373', 'Veterinario', 'Perros y Gatos', 'pbattleson5@cnbc.com', 'Pen123', '10:00', '17:00'),
-('Doria', 'Nono', 'Levi', '4126806835', 'Veterinario', 'Perros y Gatos', 'dlevi6@cam.ac.uk', 'Dorin123', '12:00', '20:00'),
-('Maire', 'Thorneley', 'Novichenko', '9947208221', 'Veterinario', 'Perros y Gatos', 'mnovichenko7@photobucket.com', 'Maire123', '12:00', '20:00'),
-('Lorette', 'Cable', 'Clemerson', '5032074542', 'Veterinario', 'Perros y Gatos', 'lclemerson8@mashable.com', 'Lorette123', '10:00', '17:00'),
-('Berny', 'Hapke', 'Wessel', '8494866214',  'Finanzas', 'Ninguna', 'bwessel9@cbsnews.com', 'Berny123', '11:00', '20:00'),
-('Sax', 'Burwood', 'Downe', '2064079177', 'Finanzas','Ninguna', 'sodownea@imageshack.us', 'Sax123', '11:00', '20:00'),
-('Todd', 'Marlor', 'Bunford', '8028883945', 'Finanzas',  'Ninguna','tbunfordb@example.com', 'Todd123', '11:00', '20:00'),
-('Kip', 'Marxsen', 'Chastenet', '8743943545', 'Finanzas','Ninguna', 'kchastenetc@jiathis.com', 'Kip123', '11:00', '20:00'),
-('Mellisent', 'Stallworth', 'Folkard', '3244360289', 'Secretario', 'Ninguna', 'mfolkardd@hao123.com', 'Melli123', '10:00', '20:00'),
-('Raychel', 'Cratere', 'Snape', '4666359674', 'Secretario', 'Ninguna', 'rsnapee@feedburner.com', 'Ray123', '10:00', '20:00'),
-('Carleen', 'Chsteney', 'Gantzer', '2597826287', 'Secretario', 'Ninguna', 'cgantzerf@telegraph.co.uk', 'Carleen123', '10:00', '20:00'),
-('Trenna', 'Rainbow', 'Licari', '2774665184', 'Secretario', 'Ninguna','tlicarig@google.ru', 'Treen123', '10:00', '20:00'),
-('Basile', 'Klaessen', 'Yewdell', '1627816879', 'Veterinario', 'Reptiles', 'byewdellh@cornell.edu', 'Basil123', '12:00', '20:00'),
-('Lionel', 'Nutbrown', 'Baysting', '7956446973',  'Veterinario', 'Aves', 'lbaystingi@biglobe.ne.jp', 'Lionel123', '12:00', '20:00'),
-('Marie', 'Timblett', 'O''Farrell', '8628600182', 'Veterinario', 'Peces', 'mofarrellj@prnewswire.com', 'Marie123', '12:00', '20:00'),
-('Fernando', 'Kos', 'Danaher', '7717463984', 'Veterinario', 'Mamíferos', 'fdanaherk@yelp.com', 'Fer123', '12:00', '20:00'),
-('Gibb', 'Laker', 'Meneur', '2649487556', 'Veterinario', 'Mamíferos', 'gmeneurl@alibaba.com', 'Gibb123', '12:00', '20:00');
+('1','Luis Angel', 'Aguilar', 'Ceja', '5534096789', 'Veterinario', 'Perros y Gatos', 'laacarguilarceja@gmail.com', 'luis123', "10:00", "17:00"),
+('5','Cesar Sadrak','Martin','Moreno', '5567907860', 'Veterinario', 'Perros y Gatos', 'kreytos.pavi10@gmail.com', 'cesar123', "10:00", "17:00"),
+('4','Emilio','Gallegos','Salinas', '5590123624', 'Veterinario', 'Reptiles', 'emilio_gallegos112@gmail.com','emilio123', "12:00", "20:00"),
+('1','Victor Manuel','Cabello','Vargas', '5589453562', 'Finanzas', 'Ninguna', 'victor.cabello091@gmail.com','victor123', "11:00", "20:00"),
+('6','Gabriela','Cruz','Gallegos','5551650291', 'Finanzas', 'Ninguna','ocbej@gmail.com', 'gabriela145', "11:00", "20:00"),
+('3','Alejandra','Salto','Alfaro', '5555118636', 'Secretario', 'Ninguna', 'cnmlah@gmail.com', 'alejandra144', '10:00', "20:00" ),
+('1','Sheyla','Romero','Monroy', '5555766516', 'Secretario', 'Ninguna', 'Ensjv@gmail.com', 'Sheyla123', "10:00", "20:00"),
+('5','Marco','Duran','Romero', '5553560052', 'Veterinario', 'Reptiles', 'patosycorbatas@gmail.com', 'Marco123', "12:00", "20:00"),
+('1','Patricia','Vargas','Arredondo', '5551000428', 'Veterinario', 'Aves', 'etesech99@gmail.com', 'Patricia123', "12:00", "20:00"),
+('6','Anahi','Salinas','Hernandez', '5556727693', 'Veterinario', 'Aves', 'holacomoestas@gmail.com', 'Anahi123', "12:00", "20:00"),
+('2','Brenda','Cisneros','Lopez', '5521630831', 'Veterinario', 'Mamíferos', 'BrenLopez@gmail.com', 'Brenda123', "12:00", "20:00"),
+('6','Ivonne','Ugalde','Guerrero', '5553990664', 'Veterinario', 'Mamíferos', 'gue_rro98@outlook.com', 'ivon1123', "12:00", "20:00"),
+('4','Maria','Sandoval','Martinez', '5576458792', 'Veterinario', 'Peces', 'marmar26@gmail.com', 'Maria123', "13:00", "20:00"),
+('4','Ana','Zapata','Moreno', '5555144116', 'Gerente', 'Ninguna', 'bibvb@gmail.com', 'ana123', "10:00", "20:00"),
+('6','Antonio','Ceja','Gonzalez', '5556733612', 'Veterinario', 'Ninguna', 'elpepe@gmail.com', 'Antonio123', "12:00", "19:00"),
+('6','Karla','Benítez','Quiroz', '5555965229', 'Veterinario', 'Ninguna', 'quiroz_beni66@outlook.com', 'Karla123', "12:00", "19:00"),
+('1','Kilian', 'Trollope', 'Cauderlie', '4139568508', 'Gerente','Ninguna', 'kcauderlie0@cisco.com', 'kilian123', '10:00', '20:00'),
+('2','Vanni', 'Norway', 'Laurence', '4207227957', 'Gerente', 'Ninguna', 'vlaurence1@vinaora.com', 'Vani123', '10:00', '20:00'),
+('3','Temple', 'Kenny', 'Muffen', '7666507043', 'Gerente','Ninguna', 'tmuffen2@goo.ne.jp', 'Temple123', '10:00', '20:00'),
+('5','Melania', 'Jahn', 'Trotton', '5981839429', 'Gerente', 'Ninguna', 'mtrotton3@indiegogo.com', 'Melania123', '10:00', '20:00'),
+('6','Bent', 'Geffcock', 'Blackburne', '5357512577', 'Gerente','Ninguna', 'bblackburne4@4shared.com', 'Bent123', '10:00', '20:00'),
+('2','Pen', 'Fehely', 'Battleson', '8616103373', 'Veterinario', 'Perros y Gatos', 'pbattleson5@cnbc.com', 'Pen123', '10:00', '17:00'),
+('3','Doria', 'Nono', 'Levi', '4126806835', 'Veterinario', 'Perros y Gatos', 'dlevi6@cam.ac.uk', 'Dorin123', '12:00', '20:00'),
+('3','Maire', 'Thorneley', 'Novichenko', '9947208221', 'Veterinario', 'Perros y Gatos', 'mnovichenko7@photobucket.com', 'Maire123', '12:00', '20:00'),
+('1','Lorette', 'Cable', 'Clemerson', '5032074542', 'Veterinario', 'Perros y Gatos', 'lclemerson8@mashable.com', 'Lorette123', '10:00', '17:00'),
+('6','Berny', 'Hapke', 'Wessel', '8494866214',  'Finanzas', 'Ninguna', 'bwessel9@cbsnews.com', 'Berny123', '11:00', '20:00'),
+('3','Sax', 'Burwood', 'Downe', '2064079177', 'Finanzas','Ninguna', 'sodownea@imageshack.us', 'Sax123', '11:00', '20:00'),
+('4','Todd', 'Marlor', 'Bunford', '8028883945', 'Finanzas',  'Ninguna','tbunfordb@example.com', 'Todd123', '11:00', '20:00'),
+('5','Kip', 'Marxsen', 'Chastenet', '8743943545', 'Finanzas','Ninguna', 'kchastenetc@jiathis.com', 'Kip123', '11:00', '20:00'),
+('1','Mellisent', 'Stallworth', 'Folkard', '3244360289', 'Secretario', 'Ninguna', 'mfolkardd@hao123.com', 'Melli123', '10:00', '20:00'),
+('4','Raychel', 'Cratere', 'Snape', '4666359674', 'Secretario', 'Ninguna', 'rsnapee@feedburner.com', 'Ray123', '10:00', '20:00'),
+('5','Carleen', 'Chsteney', 'Gantzer', '2597826287', 'Secretario', 'Ninguna', 'cgantzerf@telegraph.co.uk', 'Carleen123', '10:00', '20:00'),
+('3','Trenna', 'Rainbow', 'Licari', '2774665184', 'Secretario', 'Ninguna','tlicarig@google.ru', 'Treen123', '10:00', '20:00'),
+('5','Basile', 'Klaessen', 'Yewdell', '1627816879', 'Veterinario', 'Reptiles', 'byewdellh@cornell.edu', 'Basil123', '12:00', '20:00'),
+('4','Lionel', 'Nutbrown', 'Baysting', '7956446973',  'Veterinario', 'Aves', 'lbaystingi@biglobe.ne.jp', 'Lionel123', '12:00', '20:00'),
+('4','Marie', 'Timblett', 'O''Farrell', '8628600182', 'Veterinario', 'Peces', 'mofarrellj@prnewswire.com', 'Marie123', '12:00', '20:00'),
+('5','Fernando', 'Kos', 'Danaher', '7717463984', 'Veterinario', 'Mamíferos', 'fdanaherk@yelp.com', 'Fer123', '12:00', '20:00'),
+('1','Gibb', 'Laker', 'Meneur', '2649487556', 'Veterinario', 'Mamíferos', 'gmeneurl@alibaba.com', 'Gibb123', '12:00', '20:00');
 
 
 INSERT INTO mascota (Id_usuario, Nombre_Mascota, Especie_Mascota) VALUES
@@ -240,32 +240,32 @@ Delegacion_Usuario, Ciudad_Usuario, CP_Usuario, Metodo_Pago, Num_Tarjeta, Telefo
 ('Chucho', 'Peaple', 'Borles', 'cborlesi@dropbox.com', 'B4DjgxXVAPh', 'Fordem', '05', '68', 'Nebraska', 'Omaha', '68197', 'Credito', '5100175503915637', '4025447553'),
 ('Karna', 'Straker', 'Cocci', 'kcoccij@constantcontact.com', '53LZC3Xnh', 'Goodland', '3788', '8', 'South Carolina', 'Columbia', '29208', 'Debito', '5100134252680371', '8036955557');
 
-insert into expediente (id_sucursal, id_mascota, id_cita) values 
-(5, 11, 4),
-(6, 2, 8),
-(2, 17, 17),
-(5, 7, 18),
-(5, 20, 12),
-(6, 17, 10),
-(6, 16, 1),
-(2, 20, 12),
-(6, 16, 9),
-(2, 3, 17),
-(6, 11, 7),
-(4, 6, 3),
-(3, 1, 18),
-(1, 14, 8),
-(4, 15, 20),
-(1, 19, 11),
-(6, 10, 20),
-(1, 13, 3),
-(6, 17, 10),
-(5, 15, 9),
-(2, 6, 4),
-(3, 16, 6),
-(3, 3, 10),
-(2, 20, 17),
-(2, 6, 2);
+insert into expediente (id_sucursal, id_mascota) values 
+(5, 11),
+(6, 2),
+(2, 17),
+(5, 7),
+(5, 20),
+(6, 17),
+(6, 16),
+(2, 20),
+(6, 16),
+(2, 3),
+(6, 11),
+(4, 6),
+(3, 1),
+(1, 14),
+(4, 15),
+(1, 19),
+(6, 10),
+(1, 13),
+(6, 17),
+(5, 15),
+(2, 6),
+(3, 16),
+(3, 3),
+(2, 20),
+(2, 6);
 
 insert into productosucursal (id_sucursal, id_producto) values (4, 16);
 insert into productosucursal (id_sucursal, id_producto) values (6, 50);
@@ -368,46 +368,6 @@ insert into productosucursal (id_sucursal, id_producto) values (4, 4);
 insert into productosucursal (id_sucursal, id_producto) values (3, 30);
 insert into productosucursal (id_sucursal, id_producto) values (3, 58);
 
-insert into sucursalempleado (id_empleado, id_sucursal) values 
-(1, 1),
-(8, 1),
-(10, 1),
-(4, 1),
-(38,1),
-(17,1),
-(26,1),
-(30,1),
-(12, 2),
-(6, 2),
-(22,2),
-(18,2),
-(26,2),
-(7, 3),
-(19,3),
-(23,3),
-(27,3),
-(24,3),
-(33,3),
-(15, 4),
-(3, 4),
-(14, 4),
-(28,4),
-(31,4),
-(35,4),
-(36,4),
-(9, 5),
-(2, 5),
-(20,5),
-(37,5),
-(34,5),
-(29,5),
-(32,5),
-(5, 6),
-(16, 6),
-(11, 6),
-(21,6),
-(13, 6),
-(25,6);
 
 insert into ticketproducto (id_ticket, id_producto) values (17, 55);
 insert into ticketproducto (id_ticket, id_producto) values (16, 63);
@@ -519,14 +479,12 @@ select * from sucursal;
 select * from ticket;
 select * from expediente;
 select * from productosucursal;
-select * from sucursalempleado;
 select * from ticketproducto;
 select * from usuario;
 
 delete from cita;
 delete from usuario;
 delete from empleado;
-delete from sucursalempleado;
 delete from mascota;
 delete from sucursal;
 delete from ticket;
@@ -546,10 +504,9 @@ select * from mascota where Id_usuario=1;
 select Fecha_Cita, id_sucursal, id_expediente from expediente inner join cita on expediente.id_cita = cita.Id_Cita
 where id_mascota=14;
 
-select Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Especialidad, Nombre_Sucursal
-from sucursalempleado inner join empleado on sucursalempleado.id_empleado = empleado.Id_Empleado 
-join sucursal on sucursalempleado.id_sucursal = sucursal.Id_Sucursal
-where empleado.Especialidad='Perros y Gatos';
+select Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado where Especialidad = 'Reptiles';
+select Nombre_Sucursal,Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado inner join sucursal on 
+empleado.Id_sucursal = sucursal.Id_Sucursal where sucursal.Nombre_Sucursal = 'Patitas Felices Iztapalapa';
 
 select * from ticket where Id_usuario=1;
 select * from ticketproducto inner join producto on ticketproducto.id_producto = producto.Id_Producto
@@ -564,3 +521,26 @@ select * from mascota;
 
 update producto set Stock = 30 where Nombre_Producto = 'Casa para Baño';
 select * from producto where Nombre_Producto = 'Casa para Baño';
+
+update producto set precio = 265.74 where Nombre_Producto = 'Casa para Baño';
+
+insert into empleado(Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Cargo_Empleado, Especialidad, Correo_Empleado, Contraseña_Empleado, Horario_entrada_Empleado, Horario_salida_Empleado) 
+VALUES
+('Gabriela','Cruz','Gallegos','5551650291', 'Finanzas', 'Ninguna','ocbej@gmail.com', 'gabriela145', "11:00", "20:00");
+
+delete from empleado where Nombre_Empleado = 'Paquita' and Apellido1_Empleado = 'Vazquez';
+
+INSERT INTO cita (Fecha_Cita) values ("2021-10-28 10:00:00");
+
+select * FROM cita where Fecha_Cita = "2021-12-26 10:00:00";
+
+select Id_Usuario, Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario from usuario where Id_Usuario=3;
+
+select Fecha_Cita, id_sucursal from expediente inner join cita on expediente.id_expediente = cita.Id_Expediente where id_mascota=5;
+
+update cita set Fecha_cita = "2021-12-26 14:00:00" where Id_Cita = 2;
+
+
+
+
+

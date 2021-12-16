@@ -8,11 +8,14 @@ set @@auto_increment_offset=1;
 CREATE TABLE `cita` (
   `Id_Cita` INT NOT NULL auto_increment,
   `Fecha_Cita` DATETIME NOT NULL,
-  PRIMARY KEY (`Id_Cita`))
-ENGINE = InnoDB;
+  `Id_Expediente` INT NOT NULL,
+  PRIMARY KEY (`Id_Cita`),
+  FOREIGN KEY (`Id_Expediente`) REFERENCES `expediente`(`id_expediente`)
+);
 
 CREATE TABLE `empleado` (
   `Id_Empleado` INT NOT NULL AUTO_INCREMENT,
+  `Id_sucursal` int not null, 
   `Nombre_Empleado` varchar(45) NOT NULL,
   `Apellido1_Empleado` varchar(45) NOT NULL,
   `Apellido2_Empleado` varchar(45) NOT NULL,
@@ -24,6 +27,7 @@ CREATE TABLE `empleado` (
   `Horario_entrada_Empleado` time NOT NULL,
   `Horario_salida_Empleado` time NOT NULL,
   PRIMARY KEY (`Id_Empleado`),
+  FOREIGN KEY (`Id_sucursal`) REFERENCES `sucursal`(`Id_Sucursal`),
   UNIQUE KEY `Correo_Empleado_UNIQUE` (`Correo_Empleado`)
 );
 
@@ -66,14 +70,11 @@ CREATE TABLE `expediente` (
   `id_expediente` INT NOT NULL AUTO_INCREMENT,
   `id_sucursal` INT NOT NULL,
   `id_mascota` INT NOT NULL,
-  `id_cita` INT NOT NULL,
   PRIMARY KEY (`id_expediente`),
   KEY `id_sucursal` (`id_sucursal`),
   KEY `id_mascota` (`id_mascota`),
-  KEY `id_cita` (`id_cita`),
   CONSTRAINT `expediente_ibfk_1` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursal` (`Id_Sucursal`),
-  CONSTRAINT `expediente_ibfk_2` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`Id_Mascota`),
-  CONSTRAINT `expediente_ibfk_3` FOREIGN KEY (`id_cita`) REFERENCES `cita` (`Id_Cita`)
+  CONSTRAINT `expediente_ibfk_2` FOREIGN KEY (`id_mascota`) REFERENCES `mascota` (`Id_Mascota`)
 );
 
 CREATE TABLE `productosucursal` (
@@ -85,17 +86,6 @@ CREATE TABLE `productosucursal` (
   KEY `id_producto` (`id_producto`),
   CONSTRAINT `productosucursal_ibfk_1` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursal` (`Id_Sucursal`),
   CONSTRAINT `productosucursal_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`Id_Producto`)
-);
-
-CREATE TABLE `sucursalempleado` (
-  `Id_sucursalempleado` INT NOT NULL AUTO_INCREMENT,
-  `id_empleado` INT NOT NULL,
-  `id_sucursal` INT NOT NULL,
-  PRIMARY KEY (`Id_sucursalempleado`),
-  KEY `id_empleado` (`id_empleado`),
-  KEY `id_sucursal` (`id_sucursal`),
-  CONSTRAINT `sucursalempleado_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`Id_Empleado`),
-  CONSTRAINT `sucursalempleado_ibfk_2` FOREIGN KEY (`id_sucursal`) REFERENCES `sucursal` (`Id_Sucursal`)
 );
 
 CREATE TABLE `ticket` (
@@ -147,6 +137,7 @@ drop table sucursal;
 drop table expediente;
 drop table usuario;
 drop table productosucursal;
+drop table sucursalempleado;
 drop table ticketproducto;
 drop table producto;
 
@@ -164,3 +155,5 @@ alter table usuario AUTO_INCREMENT=0;
 
 
 alter table producto add Stock int after Especie;
+alter table empleado add Id_sucursal int after Id_Empleado;
+

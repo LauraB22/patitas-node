@@ -216,6 +216,52 @@ app.post('/crearEmpleado', (req, res) =>{
     })
 })
 
+
+app.post("/patitas/comments", async function(req, res){
+    const email = req.body.email;
+
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+            user: "correo@hotmail.com",
+            pass:  "", 
+        },
+    });
+
+    await transporter.sendMail({
+        from: '"PATITAS MEXICO 💙" <contacto@isia.com.mx>', // sender address
+        to: `${email}`, // list of receivers
+        subject: "RECUPERACION DE CONTRASEÑA", // Subject line
+        html: `
+            <img 
+                sizes = 50px 50px 
+                src="/img/etc.png" 
+                alt="Logo ISIA" 
+            />
+            <h1>Informacion sobre Pagina web</h1>
+            <p><b>Nombre: </b>${name}</p>
+            <hr/>
+            <p><b>Telefono: </b>${phone}</p>
+            <hr/>
+            <p><b>Correo: </b>${mail}</p>
+            <hr/>
+            <p><b>Asunto: </b>${text}</p>
+            <hr/>
+            <a href="isia.com.mx">
+                <img 
+                    className='login__logo'
+                    src="http://drive.google.com/uc?export=view&id=1PWTi1EVTqXOfg3NyYzeVsuPWC53Lj8cf" 
+                    alt="Logo ISIA" 
+                />
+            </a>`
+        , // html body
+    });
+});
+
+
+
 app.listen(PORT, () => {
     console.log('Corriendo 8080');
 });
