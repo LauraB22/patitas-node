@@ -34,17 +34,20 @@ app.get("/citas", (req, res) =>{
 app.post("/generarCita/:idExpediente", (req, res) =>{
     const FechaCita = req.body.FechaCita;
     const idExpediente = req.params.idExpediente;
-    const sql = "insert into cita(Fecha_Cita, Id_Expediente) values (?, ?)";
-    db.query(sql, [FechaCita, idExpediente],(err, result) =>{
+    const service = req.body.service;
+    const tamMasc = req.body.tamMasc
+    const sql = "insert into cita(Fecha_Cita, Id_Expediente, servicio, TamMascota) values (?, ?, ?, ?)";
+    db.query(sql, [FechaCita, idExpediente, service, tamMasc],(err, result) =>{
         res.send(result);
     })
 })
 
 app.patch("/editarCita/:idExpediente", (req, res) =>{
     const fechaCita = req.body.fechaCita;
+    const servicio = req.body.servicio
     const idExpediente = req.params.idExpediente;
-    const sql = "update cita set Fecha_cita = ? where Id_Cita = ?";
-    db.query(sql, [fechaCita, idExpediente], (err, result)=>{
+    const sql = "update cita set Fecha_cita = ?, servicio =? where Id_Cita = ?";
+    db.query(sql, [fechaCita, servicio, idExpediente], (err, result)=>{
         res.send(result);
     })
 })
@@ -102,6 +105,27 @@ app.get("/empleado/sucursal/:sucursal", (req, res) =>{
     const sucursal = req.params.sucursal;
     const sql = "select Nombre_Sucursal,Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado inner join sucursal on empleado.Id_sucursal = sucursal.Id_Sucursal where sucursal.Nombre_Sucursal = ?";
     db.query(sql,[sucursal], (err, result) =>{
+        res.send(result);
+    })
+})
+
+app.post("/crearUsuario", (req, res)=>{
+    const nombreUsuario = req.body.nombreUsuario;
+    const apellido1 = req.body.apellido1;
+    const apellido2 = req.body.apellido2;
+    const correo = req.body.correo;
+    const password = req.body.password;
+    const calle = req.body.calle;
+    const numext = req.body.numext;
+    const numint = req.body.numint;
+    const delegacion = req.body.delegacion;
+    const ciudad = req.body.ciudad;
+    const CP = req.body.CP;
+    const MetodoPago = req.body.MetodoPago;
+    const NumTarjeta = req.body.NumTarjeta;
+    const Telefono = req.body.Telefono;
+    const sql = "INSERT INTO usuario(Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario, Correo_Usuario, Password_Usuario, Calle_Usuario, Num_ext_Usuario, Num_int_Usuario,Delegacion_Usuario, Ciudad_Usuario, CP_Usuario, Metodo_Pago, Num_Tarjeta, Telefono_Usuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    db.query(sql, [nombreUsuario, apellido1, apellido2, correo, password, calle, numext, numint, delegacion, ciudad, CP, MetodoPago, NumTarjeta, Telefono], (err, result)=>{
         res.send(result);
     })
 })

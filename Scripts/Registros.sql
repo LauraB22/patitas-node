@@ -1,24 +1,24 @@
-INSERT INTO cita (Fecha_Cita, Id_Expediente) VALUES
-("2021-10-28 10:00:00", '3'),
-("2021-12-01 14:00:00", '1'),
-("2021-11-30 11:00:00", '5'),
-("2021-12-03 13:00:00", '5'),
-("2021-11-29 16:00:00", '6'),
-("2021-12-06 10:00:00", '3'),
-("2021-12-10 12:00:00", '2'),
-("2021-12-20 19:00:00", '7'),
-("2021-12-23 18:00:00", '2'),
-("2021-12-29 15:00:00", '4'),
-("2021-12-29 17:00:00", '8'),
-("2021-12-27 11:00:00", '8'),
-("2021-12-27 14:00:00", '9'),
-("2021-12-01 15:00:00", '9'),
-("2021-12-07 13:00:00", '10'),
-("2021-11-30 10:00:00", '10'),
-("2021-11-30 14:00:00", '11'),
-("2021-12-26 10:00:00", '11'),
-("2021-12-27 17:00:00", '12'),
-("2021-12-02 15:00:00", '13');
+INSERT INTO cita (Fecha_Cita, Id_Expediente, servicio, TamMascota) VALUES
+("2021-10-28 10:00:00", '3', 'Estetica', 'Pequeño'),
+("2021-12-01 14:00:00", '1', 'Estetica', 'Pequeño'),
+("2021-11-30 11:00:00", '5', 'Consulta general', 'Grande'),
+("2021-12-03 13:00:00", '5', 'Vacuna', 'Mediano'),
+("2021-11-29 16:00:00", '6', 'Estetica', 'Mediano'),
+("2021-12-06 10:00:00", '3', 'Consulta general', 'Pequeño'),
+("2021-12-10 12:00:00", '2', 'Vacuna', 'Pequeño'),
+("2021-12-20 19:00:00", '7', 'Vacuna', 'Pequeño'),
+("2021-12-23 18:00:00", '2', 'Consulta general', 'Grande'),
+("2021-12-29 15:00:00", '4', 'Vacuna', 'Mediano'),
+("2021-12-29 17:00:00", '8', 'Estetica', 'Mediano'),
+("2021-12-27 11:00:00", '8', 'Estetica', 'Pequeño'),
+("2021-12-27 14:00:00", '9', 'Vacuna', 'Mediano'),
+("2021-12-01 15:00:00", '9', 'Vacuna', 'Grande'),
+("2021-12-07 13:00:00", '10', 'Consulta general', 'Mediano'),
+("2021-11-30 10:00:00", '10', 'Consulta general', 'Pequeño'),
+("2021-11-30 14:00:00", '11', 'Estetica', 'Pequeño'),
+("2021-12-26 10:00:00", '11', 'Consulta general', 'Mediano'),
+("2021-12-27 17:00:00", '12', 'Vacuna', 'Mediano'),
+("2021-12-02 15:00:00", '13', 'Vacuna', 'Pequeño');
 
 INSERT INTO empleado (Id_sucursal, Nombre_Empleado, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Cargo_Empleado, Especialidad, Correo_Empleado, Contraseña_Empleado, Horario_entrada_Empleado, Horario_salida_Empleado) 
 VALUES
@@ -538,8 +538,11 @@ select Id_Usuario, Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario from usu
 
 select Fecha_Cita, id_sucursal from expediente inner join cita on expediente.id_expediente = cita.Id_Expediente where id_mascota=5;
 
-update cita set Fecha_cita = "2021-12-26 14:00:00" where Id_Cita = 2;
+update cita set Fecha_cita = "2021-12-26 14:00:00", servicio = 'Estetica' where Id_Cita = 2;
 
+INSERT INTO usuario(Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario, Correo_Usuario, Password_Usuario, Calle_Usuario, Num_ext_Usuario, Num_int_Usuario, 
+Delegacion_Usuario, Ciudad_Usuario, CP_Usuario, Metodo_Pago, Num_Tarjeta, Telefono_Usuario)VALUES
+('Manuel','Jaramillo','Wayne','shtbj@gmail.com','Manuel123', 'Industrial Vallejo', '34', '2', 'Iztapalapa', 'Ciudad de México', '09870', 'Credito','4657890861238341','5555876524');
 
 
 

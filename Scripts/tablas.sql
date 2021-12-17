@@ -9,6 +9,8 @@ CREATE TABLE `cita` (
   `Id_Cita` INT NOT NULL auto_increment,
   `Fecha_Cita` DATETIME NOT NULL,
   `Id_Expediente` INT NOT NULL,
+  `servicio`  varchar(45) NOT NULL check (servicio in ('Estetica', 'Consulta general', 'Vacuna')),
+  `TamMascota` varchar(45) NOT NULL CHECK (TamMascota in ('Pequeño', 'Mediano', 'Grande')),
   PRIMARY KEY (`Id_Cita`),
   FOREIGN KEY (`Id_Expediente`) REFERENCES `expediente`(`id_expediente`)
 );
@@ -156,4 +158,5 @@ alter table usuario AUTO_INCREMENT=0;
 
 alter table producto add Stock int after Especie;
 alter table empleado add Id_sucursal int after Id_Empleado;
-
+alter table cita add servicio  varchar(45) NOT NULL check (servicio in ('Estetica', 'Consulta general', 'Vacuna')) after Id_Expediente;
+alter table cita add TamMascota varchar(45) NOT NULL CHECK (TamMascota in ('Pequeño', 'Mediano', 'Grande')) after servicio;
