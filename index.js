@@ -62,12 +62,13 @@ app.post("/empleados", (req, res) =>{
     })
 })
 
-app.get("/empleado/:id", (req, res) =>{
-    const id=req.params.id;
-   const sql = "select * from empleado where Id_Empleado=?";
-   db.query(sql,[id], (err,result) =>{
-       res.send(result);
-   })
+app.get("/empleado/:email/:password", (req, res) =>{
+    const email=req.params.email;
+    const password=req.params.password;
+   const sql = "select * from empleado where Correo_Empleado=? and Contraseña_Eempleado=?";
+    db.query(sql,[email, password], (err,result) =>{
+        res.send(result);
+    })
 })
 
 app.get("/producto/:categoria", (req,res) => {
@@ -139,14 +140,21 @@ app.post("/usuario", (req, res) => {
         res.send(result);
     })
 })
-
-app.get("/usuarioId/:idUsuario", (req, res) =>{
-    const idUsuario = req.params.idUsuario;
-    const sql = "select Id_Usuario, Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario from usuario where Id_Usuario=?";
-    db.query(sql, [idUsuario], (err, result) =>{
+app.get("/usuarioId/:email/:password", (req, res) =>{
+    const email = req.params.email;
+    const password = req.params.password;
+    const sql = "select * from usuario where Correo_Usuario=? and Password_Usuario=?";
+    db.query(sql, [email,password], (err, result) =>{
         res.send(result);
     })
 })
+// app.get("/usuarioId/:idUsuario", (req, res) =>{
+//     const idUsuario = req.params.idUsuario;
+//     const sql = "select Id_Usuario, Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario from usuario where Id_Usuario=?";
+//     db.query(sql, [idUsuario], (err, result) =>{
+//         res.send(result);
+//     })
+// })
 
 app.get("/mascota/:id", (req, res) =>{
     const id = req.params.id;
@@ -287,5 +295,5 @@ app.post("/patitas/comments", async function(req, res){
 
 
 app.listen(PORT, () => {
-    console.log('Corriendo 8080');
+    console.log('Corriendo 3001');
 });
