@@ -136,14 +136,19 @@ app.post("/usuario", (req, res) => {
     const password = req.body.password;
     const sql = "select * from usuario where Correo_Usuario=? and Password_Usuario=?";
     db.query(sql, [email, password], (err, result) =>{
-        res.send(result);
+        if(result === null){
+            res.send(err)
+        } else {
+            res.send(result)
+        }
     })
 })
 
-app.get("/usuarioId/:idUsuario", (req, res) =>{
-    const idUsuario = req.params.idUsuario;
-    const sql = "select Id_Usuario, Nombre_Usuario, Apellido1_Usuario, Apellido2_Usuario from usuario where Id_Usuario=?";
-    db.query(sql, [idUsuario], (err, result) =>{
+app.get("/usuarioId/:email/:password", (req, res) =>{
+    const email = req.params.email;
+    const password = req.params.password;
+    const sql = "select * from usuario where Correo_Usuario=? and Password_Usuario=?";
+    db.query(sql, [email,password], (err, result) =>{
         res.send(result);
     })
 })
