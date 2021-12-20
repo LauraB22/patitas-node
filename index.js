@@ -71,6 +71,14 @@ app.get("/empleado/:email/:password", (req, res) =>{
     })
 })
 
+app.get("/producto", (req,res) => {
+    const categoria = req.params.categoria;
+    const sql = "select * from producto ";
+    db.query(sql,[categoria], (err,result)=>{
+        res.send(result);
+    })
+})
+
 app.get("/producto/:categoria", (req,res) => {
     const categoria = req.params.categoria;
     const sql = "select * from producto where Categoria=?";
