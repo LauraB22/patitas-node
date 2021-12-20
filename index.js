@@ -109,6 +109,15 @@ app.get("/sucursales", (req,res) => {
     })
 })
 
+app.get("/sucursal/:idSucursal", (req, res)=>{
+    const idSucursal = req.params.idSucursal;
+    const sql = "select Nombre_Sucursal from sucursal where Id_Sucursal=?";
+    db.query(sql, [idSucursal], (err, result) =>{
+        res.send(result);
+    })
+})
+
+
 app.get("/empleados/especialidad/:especialidad", (req, res) =>{
     const especialidad = req.params.especialidad;
     const sql = "select Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado where Especialidad = ?";
