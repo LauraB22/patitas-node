@@ -61,8 +61,8 @@ app.post("/empleados", (req, res) =>{
         res.send(result);
     })
 })
-//se le agrego el Id
-app.get("/empleadoId/:id", (req, res) =>{
+
+app.get("/empleado/:id", (req, res) =>{
     // const id=req.params.id;
     const id = req.params.id;
     const sql = "select * from empleado where Id_Empleado=?";
@@ -86,13 +86,7 @@ app.get("/producto", (req,res) => {
     })
 })
 
-app.get("/producto", (req,res) => {
-    const categoria = req.params.categoria;
-    const sql = "select * from producto ";
-    db.query(sql,[categoria], (err,result)=>{
-        res.send(result);
-    })
-})
+
 
 app.get("/producto/:categoria", (req,res) => {
     const categoria = req.params.categoria;
