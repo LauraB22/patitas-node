@@ -78,6 +78,14 @@ app.get("/producto", (req,res) => {
     })
 })
 
+app.get("/producto", (req,res) => {
+    const categoria = req.params.categoria;
+    const sql = "select * from producto ";
+    db.query(sql,[categoria], (err,result)=>{
+        res.send(result);
+    })
+})
+
 app.get("/producto/:categoria", (req,res) => {
     const categoria = req.params.categoria;
     const sql = "select * from producto where Categoria=?";
@@ -101,7 +109,7 @@ app.get("/sucursales", (req,res) => {
     })
 })
 
-app.get("/empleado/especialidad/:especialidad", (req, res) =>{
+app.get("/empleados/especialidad/:especialidad", (req, res) =>{
     const especialidad = req.params.especialidad;
     const sql = "select Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado where Especialidad = ?";
     db.query(sql,[especialidad], (err, result) =>{
