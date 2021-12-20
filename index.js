@@ -61,8 +61,8 @@ app.post("/empleados", (req, res) =>{
         res.send(result);
     })
 })
-
-app.get("/empleado/:id", (req, res) =>{
+//se le agrego el Id
+app.get("/empleadoId/:id", (req, res) =>{
     // const id=req.params.id;
     const id = req.params.id;
     const sql = "select * from empleado where Id_Empleado=?";
