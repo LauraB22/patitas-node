@@ -86,12 +86,12 @@ INSERT INTO mascota (Id_usuario, Nombre_Mascota, Especie_Mascota) VALUES
 
 INSERT INTO sucursal(Nombre_Sucursal, Calle_Sucursal, Num_ext_Sucursal, Num_int_Sucursal, Colonia__Sucursal, Delegacion_Sucursal,
 CP_Sucursal, Ciudad_Sucursal, Telefono) VALUES
-('Patitas Felices Nápoles', 'Alabama', '178', '23', 'Nápoles', 'Benito Juárez', '03810', 'Ciudad de México', '5520934652'),
-('Patitas Felices Coyoacan', 'Real de Los Reyes', '158', '30','Los Reyes', 'Coyoacán', '04330', 'Ciudad de México', '5589096755'),
-('Patitas Felices Iztapalapa', 'Porvenir', '60', '05', 'Las Arboledas', 'Iztapalapa', '09790', 'Ciudad de México', '5545341290'),
-('Patitas Felices Interlomas', 'Av. Secretaría de Marina', '700', '08', 'Lomas del Chamizal', 'Cuajimalpa de Morelos', '05129', 'Ciudad de México', '5511788909'),
-('Patitas Felices Iztacalco', 'Añil', '144', '56', 'Granjas México', 'Iztacalco', '08400', 'Ciudad de México', '5526407810'),
-('Patitas Felices Coapa', 'Manuela Cañizares', '112', '10', 'Coapa, Culhuacan', 'Coyoacán', '04480', 'Ciudad de México', '5580146989');
+('Nápoles', 'Alabama', '178', '23', 'Nápoles', 'Benito Juárez', '03810', 'Ciudad de México', '5520934652'),
+('Coyoacan', 'Real de Los Reyes', '158', '30','Los Reyes', 'Coyoacán', '04330', 'Ciudad de México', '5589096755'),
+('Iztapalapa', 'Porvenir', '60', '05', 'Las Arboledas', 'Iztapalapa', '09790', 'Ciudad de México', '5545341290'),
+('Interlomas', 'Av. Secretaría de Marina', '700', '08', 'Lomas del Chamizal', 'Cuajimalpa de Morelos', '05129', 'Ciudad de México', '5511788909'),
+('Iztacalco', 'Añil', '144', '56', 'Granjas México', 'Iztacalco', '08400', 'Ciudad de México', '5526407810'),
+('Coapa', 'Manuela Cañizares', '112', '10', 'Coapa, Culhuacan', 'Coyoacán', '04480', 'Ciudad de México', '5580146989');
 
 INSERT INTO ticket(Id_usuario, Fecha, Cantidad) VALUES
 ('3',"2021-10-28 10:55:00", '2'),
@@ -547,3 +547,4 @@ Delegacion_Usuario, Ciudad_Usuario, CP_Usuario, Metodo_Pago, Num_Tarjeta, Telefo
 update producto set Imagen_Produc = "16m82CHb_wU_gIBpTXizmea6sKAT9fKRR" where Id_Producto = 73;
 update producto set Categoria = "Juguetes" where Id_Producto = 39;
 
+update sucursal set Nombre_Sucursal = "Coapa" where Id_Sucursal =6;
