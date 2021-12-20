@@ -62,6 +62,14 @@ app.post("/empleados", (req, res) =>{
     })
 })
 
+app.get("/empleado/:id", (req, res) =>{
+    // const id=req.params.id;
+    const id = req.params.id;
+    const sql = "select * from empleado where Id_Empleado=?";
+    db.query(sql,[id], (err,result) =>{
+        res.send(result);
+    })
+})
 app.get("/empleado/:email/:password", (req, res) =>{
     const email=req.params.email;
     const password=req.params.password;
