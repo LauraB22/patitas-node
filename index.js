@@ -65,7 +65,7 @@ app.post("/empleados", (req, res) =>{
 app.get("/empleado/:email/:password", (req, res) =>{
     const email=req.params.email;
     const password=req.params.password;
-   const sql = "select * from empleado where Correo_Empleado=? and Contraseña_Eempleado=?";
+   const sql = "select * from empleado where Correo_Empleado=? and Contraseña_Empleado=?";
     db.query(sql,[email, password], (err,result) =>{
         res.send(result);
     })
@@ -102,7 +102,7 @@ app.get("/sucursales", (req,res) => {
     })
 })
 
-app.get("/empleado/especialidad/:especialidad", (req, res) =>{
+app.get("/empleados/especialidad/:especialidad", (req, res) =>{
     const especialidad = req.params.especialidad;
     const sql = "select Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado where Especialidad = ?";
     db.query(sql,[especialidad], (err, result) =>{
