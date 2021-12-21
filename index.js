@@ -63,11 +63,31 @@ app.post("/empleados", (req, res) =>{
 })
 
 app.get("/empleado/:id", (req, res) =>{
-    const id=req.params.id;
-   const sql = "select * from empleado where Id_Empleado=?";
-   db.query(sql,[id], (err,result) =>{
-       res.send(result);
-   })
+    // const id=req.params.id;
+    const id = req.params.id;
+    const sql = "select * from empleado where Id_Empleado=?";
+    db.query(sql,[id], (err,result) =>{
+        res.send(result);
+    })
+})
+
+app.get("/horario", (req, res) =>{
+    // const id=req.params.id;
+    const empleado = req.query.empleado;
+    const sql = "select Horario_entrada_Empleado, Horario_salida_Empleado from empleado where Nombre_Empleado=?";
+    db.query(sql,[empleado], (err,result) =>{
+        res.send(result);
+    })
+})
+
+
+app.get("/empleado/:email/:password", (req, res) =>{
+    const email=req.params.email;
+    const password=req.params.password;
+   const sql = "select * from empleado where Correo_Empleado=? and Contraseña_Empleado=?";
+    db.query(sql,[email, password], (err,result) =>{
+        res.send(result);
+    })
 })
 
 app.get("/producto/:categoria", (req,res) => {
@@ -101,10 +121,10 @@ app.get("/empleado/especialidad/:especialidad", (req, res) =>{
     })
 })
 
-app.get("/empleado/sucursal/:sucursal", (req, res) =>{
-    const sucursal = req.params.sucursal;
-    const sql = "select Nombre_Sucursal,Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado inner join sucursal on empleado.Id_sucursal = sucursal.Id_Sucursal where sucursal.Nombre_Sucursal = ?";
-    db.query(sql,[sucursal], (err, result) =>{
+app.get("/search",(req, res) =>{
+    const nombre = req.query.nombre;
+    const sql = `select * from empleado inner join sucursal on empleado.Id_sucursal = sucursal.Id_Sucursal where sucursal.Nombre_Sucursal = ?`;
+    db.query(sql,[nombre], (err, result) => {
         res.send(result);
     })
 })
@@ -143,7 +163,6 @@ app.post("/usuario", (req, res) => {
         }
     })
 })
-
 app.get("/usuarioId/:email/:password", (req, res) =>{
     const email = req.params.email;
     const password = req.params.password;
@@ -292,5 +311,5 @@ app.post("/patitas/comments", async function(req, res){
 
 
 app.listen(PORT, () => {
-    console.log('Corriendo 8080');
+    console.log('Corriendo 3001');
 });
