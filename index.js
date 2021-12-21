@@ -61,6 +61,13 @@ app.post("/empleados", (req, res) =>{
         res.send(result);
     })
 })
+app.get("/SolucitudEmpleados", (req, res) =>{
+    // const id=req.params.id;
+    const sql = "select * from empleado";
+    db.query(sql, (err,result) =>{
+        res.send(result);
+    })
+})
 
 app.get("/empleado/:id", (req, res) =>{
     // const id=req.params.id;
