@@ -89,6 +89,15 @@ app.get("/empleado/:email/:password", (req, res) =>{
         res.send(result);
     })
 })
+app.get("/producto", (req,res) => {
+    const categoria = req.params.categoria;
+    const sql = "select * from producto ";
+    db.query(sql,[categoria], (err,result)=>{
+        res.send(result);
+    })
+})
+
+
 
 app.get("/producto/:categoria", (req,res) => {
     const categoria = req.params.categoria;
@@ -113,7 +122,16 @@ app.get("/sucursales", (req,res) => {
     })
 })
 
-app.get("/empleado/especialidad/:especialidad", (req, res) =>{
+app.get("/sucursal/:idSucursal", (req, res)=>{
+    const idSucursal = req.params.idSucursal;
+    const sql = "select Nombre_Sucursal from sucursal where Id_Sucursal=?";
+    db.query(sql, [idSucursal], (err, result) =>{
+        res.send(result);
+    })
+})
+
+
+app.get("/empleados/especialidad/:especialidad", (req, res) =>{
     const especialidad = req.params.especialidad;
     const sql = "select Nombre_Empleado, Especialidad, Apellido1_Empleado, Apellido2_Empleado, Telefono_Empleado, Correo_Empleado from empleado where Especialidad = ?";
     db.query(sql,[especialidad], (err, result) =>{
@@ -279,14 +297,14 @@ app.post("/patitas/comments", async function(req, res){
     });
 
     await transporter.sendMail({
-        from: '"PATITAS MEXICO 💙" <contacto@isia.com.mx>', // sender address
+        from: '"PATITAS MEXICO 💙" <patitas@gmail.com>', // sender address
         to: `${email}`, // list of receivers
         subject: "RECUPERACION DE CONTRASEÑA", // Subject line
         html: `
             <img 
                 sizes = 50px 50px 
-                src="/img/etc.png" 
-                alt="Logo ISIA" 
+                src="./img/Loguito.png" 
+                alt="Logo Patitas Felices" 
             />
             <h1>Informacion sobre Pagina web</h1>
             <p><b>Nombre: </b>${name}</p>
